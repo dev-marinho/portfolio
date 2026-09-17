@@ -235,41 +235,33 @@
       margin-left: 2px;
     }
 
-    /* CARD TOP 10 (ESTRUTURA FIXA SEM VAZAMENTO) */
+    /* CARD TOP 10 (MINIMALISTA E SEM VAZAMENTOS) */
     .card-top10 {
       position: relative;
-      flex: 0 0 170px;
-      width: 170px;
+      flex: 0 0 135px;
+      width: 135px;
       height: 240px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
-
-    .top10-number {
-      position: absolute;
-      left: 0;
-      bottom: -10px;
-      font-size: 6.5rem;
-      font-weight: 900;
-      line-height: 0.8;
-      color: var(--bg-dark);
-      -webkit-text-stroke: 2px var(--accent-steel);
-      z-index: 1;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .top10-card-body {
-      position: relative;
-      width: 125px;
-      height: 220px;
-      margin-left: auto;
       background-color: var(--bg-card);
       border-radius: 8px;
       overflow: hidden;
-      z-index: 2;
+      cursor: pointer;
       border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .top10-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(8, 12, 20, 0.85);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(96, 165, 250, 0.4);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 5;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.5px;
     }
 
     /* MODAL VIDEO PLAYER */
@@ -370,41 +362,41 @@
   <!-- CONTENT ROWS -->
   <main class="rows-container">
 
-    <!-- FILEIRA 1: TOP 10 GASTRONÔMICOS (10 ITENS) -->
+    <!-- FILEIRA 1: TOP 10 GASTRONÔMICOS -->
     <section class="category-row">
       <h2 class="row-title">Top 10 Takes Gastronômicos</h2>
       <div class="row-scroll">
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">1</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">2</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">3</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">4</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">5</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">6</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">7</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">8</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">9</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">10</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#1</span><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#2</span><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#3</span><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#4</span><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#5</span><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#6</span><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#7</span><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#8</span><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#9</span><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#10</span><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
       </div>
     </section>
 
-    <!-- FILEIRA 2: TOP 10 CIRÚRGICOS (10 ITENS) -->
+    <!-- FILEIRA 2: TOP 10 CIRÚRGICOS -->
     <section class="category-row">
       <h2 class="row-title">Top 10 Takes Cirúrgicos</h2>
       <div class="row-scroll">
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">1</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">2</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">3</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">4</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">5</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">6</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">7</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">8</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">9</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">10</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#1</span><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#2</span><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#3</span><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#4</span><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#5</span><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#6</span><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#7</span><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#8</span><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#9</span><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="top10-badge">#10</span><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
       </div>
     </section>
 
-    <!-- FILEIRA 3: VÍDEOS INSTITUCIONAIS (5 ITENS) -->
+    <!-- FILEIRA 3: VÍDEOS INSTITUCIONAIS -->
     <section class="category-row">
       <h2 class="row-title">Vídeos Institucionais</h2>
       <div class="row-scroll">
@@ -416,7 +408,7 @@
       </div>
     </section>
 
-    <!-- FILEIRA 4: VÍDEOS DE HOSPEDAGENS (5 ITENS) -->
+    <!-- FILEIRA 4: VÍDEOS DE HOSPEDAGENS -->
     <section class="category-row">
       <h2 class="row-title">Vídeos de Hospedagens</h2>
       <div class="row-scroll">
@@ -428,7 +420,7 @@
       </div>
     </section>
 
-    <!-- FILEIRA 5: VÍDEOS DE ÓTICA (5 ITENS) -->
+    <!-- FILEIRA 5: VÍDEOS DE ÓTICA -->
     <section class="category-row">
       <h2 class="row-title">Vídeos de Ótica</h2>
       <div class="row-scroll">
