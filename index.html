@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MKT Marinho | Portfólio de Vídeo</title>
+  <title>MKT Marinho | Portfólio de Vídeos</title>
   <style>
     :root {
       --bg-dark: #080c14;
@@ -27,6 +27,7 @@
       color: var(--text-main);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* HEADER */
@@ -39,13 +40,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 4%;
-      background: linear-gradient(180deg, rgba(8,12,20,0.95) 0%, rgba(8,12,20,0) 100%);
+      padding: 15px 5%;
+      background: linear-gradient(180deg, rgba(8,12,20,0.98) 0%, rgba(8,12,20,0) 100%);
       backdrop-filter: blur(8px);
     }
 
     .brand-logo {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 800;
       letter-spacing: 1px;
       color: var(--text-main);
@@ -59,17 +60,14 @@
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 16px;
     }
 
     .header-nav a {
       color: var(--text-main);
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 6px;
       transition: opacity 0.2s;
     }
 
@@ -81,13 +79,13 @@
     .hero {
       position: relative;
       width: 100%;
-      height: 75vh;
-      min-height: 480px;
-      background: linear-gradient(0deg, var(--bg-dark) 0%, rgba(8,12,20,0.4) 50%, rgba(8,12,20,0.8) 100%),
+      height: 70vh;
+      min-height: 450px;
+      background: linear-gradient(0deg, var(--bg-dark) 0%, rgba(8,12,20,0.4) 50%, rgba(8,12,20,0.85) 100%),
                   url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       display: flex;
       align-items: flex-end;
-      padding: 0 4% 60px 4%;
+      padding: 0 5% 40px 5%;
     }
 
     .hero-content {
@@ -108,17 +106,17 @@
     }
 
     .hero-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 12px;
+      line-height: 1.15;
+      margin-bottom: 10px;
     }
 
     .hero-desc {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.4;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .hero-buttons {
@@ -131,18 +129,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 20px;
+      padding: 12px 18px;
       border-radius: 6px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-decoration: none;
       cursor: pointer;
       border: none;
-      transition: transform 0.2s, background-color 0.2s;
-    }
-
-    .btn:active {
-      transform: scale(0.97);
     }
 
     .btn-primary {
@@ -155,22 +148,22 @@
       color: #ffffff;
     }
 
-    /* ROWS CONTAINER */
+    /* ROWS & ROLAGEM HORIZONTAL */
     .rows-container {
-      margin-top: -20px;
       position: relative;
       z-index: 10;
-      padding-bottom: 60px;
+      padding-bottom: 40px;
     }
 
     .category-row {
-      margin-bottom: 35px;
+      margin-bottom: 30px;
+      width: 100%;
     }
 
     .row-title {
       font-size: 1.1rem;
       font-weight: 700;
-      margin-left: 4%;
+      padding-left: 5%;
       margin-bottom: 12px;
       color: var(--text-main);
     }
@@ -179,36 +172,27 @@
       display: flex;
       gap: 12px;
       overflow-x: auto;
-      padding: 0 4% 10px 4%;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent-navy) transparent;
+      overflow-y: hidden;
+      padding: 0 5% 15px 5%;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
 
     .row-scroll::-webkit-scrollbar {
-      height: 6px;
+      display: none;
     }
 
-    .row-scroll::-webkit-scrollbar-thumb {
-      background-color: var(--accent-navy);
-      border-radius: 3px;
-    }
-
-    /* CARDS VERTICAIS (9:16) */
+    /* CARD PADRÃO (9:16) */
     .card {
       position: relative;
-      flex: 0 0 140px;
-      height: 248px;
+      flex: 0 0 135px;
+      width: 135px;
+      height: 240px;
       background-color: var(--bg-card);
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-steel);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .card-img {
@@ -224,26 +208,20 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.2s;
-    }
-
-    .card:hover .card-overlay {
-      background: rgba(0, 0, 0, 0.15);
     }
 
     .play-icon {
       width: 36px;
       height: 36px;
-      background: rgba(30, 58, 138, 0.85);
+      background: rgba(30, 58, 138, 0.9);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
     .play-icon::after {
@@ -257,36 +235,41 @@
       margin-left: 2px;
     }
 
-    /* TOP 10 CARD STYLING */
+    /* CARD TOP 10 (ESTRUTURA FIXA SEM VAZAMENTO) */
     .card-top10 {
+      position: relative;
       flex: 0 0 170px;
+      width: 170px;
+      height: 240px;
       display: flex;
       align-items: flex-end;
+      overflow: hidden;
     }
 
     .top10-number {
       position: absolute;
-      left: -8px;
-      bottom: -15px;
-      font-size: 5.5rem;
+      left: 0;
+      bottom: -10px;
+      font-size: 6.5rem;
       font-weight: 900;
-      line-height: 1;
+      line-height: 0.8;
       color: var(--bg-dark);
       -webkit-text-stroke: 2px var(--accent-steel);
-      z-index: 2;
+      z-index: 1;
       pointer-events: none;
       user-select: none;
     }
 
     .top10-card-body {
       position: relative;
-      width: 120px;
-      height: 213px;
+      width: 125px;
+      height: 220px;
       margin-left: auto;
       background-color: var(--bg-card);
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     /* MODAL VIDEO PLAYER */
@@ -297,7 +280,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.92);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -311,15 +294,15 @@
     .modal-content {
       position: relative;
       width: 100%;
-      max-width: 400px;
+      max-width: 380px;
       aspect-ratio: 9/16;
-      max-height: 85vh;
+      max-height: 80vh;
       background: #000;
       border-radius: 12px;
       overflow: hidden;
     }
 
-    .modal-content iframe, .modal-content video {
+    .modal-content iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -327,7 +310,7 @@
 
     .modal-close {
       position: absolute;
-      top: -40px;
+      top: -38px;
       right: 0;
       color: #fff;
       font-size: 1.8rem;
@@ -339,7 +322,7 @@
     /* FOOTER */
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 40px 4%;
+      padding: 35px 5%;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
@@ -347,7 +330,7 @@
     }
 
     footer p {
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
   </style>
 </head>
@@ -371,7 +354,7 @@
     <div class="hero-content">
       <span class="hero-tag">Destaque Gastronômico</span>
       <h1 class="hero-title">Produção Autoral & Sensorial</h1>
-      <p class="hero-desc">Vídeos estratégicos desenhados para despertar o desejo imediato e valorizar a essência artesanal da sua marca.</p>
+      <p class="hero-desc">Vídeos estratégicos desenhados para despertar o desejo imediato e valorizar a essência da sua marca.</p>
       <div class="hero-buttons">
         <button class="btn btn-primary" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
           Assistir Destaque
@@ -387,116 +370,73 @@
   <!-- CONTENT ROWS -->
   <main class="rows-container">
 
-    <!-- FILEIRA 1: TOP 10 GASTRONÔMICOS -->
+    <!-- FILEIRA 1: TOP 10 GASTRONÔMICOS (10 ITENS) -->
     <section class="category-row">
       <h2 class="row-title">Top 10 Takes Gastronômicos</h2>
       <div class="row-scroll">
-        
-        <!-- CARD TOP 1 -->
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <div class="top10-number">1</div>
-          <div class="top10-card-body">
-            <img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Gastronomia 1">
-            <div class="card-overlay"><div class="play-icon"></div></div>
-          </div>
-        </div>
-
-        <!-- CARD TOP 2 -->
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <div class="top10-number">2</div>
-          <div class="top10-card-body">
-            <img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80" alt="Gastronomia 2">
-            <div class="card-overlay"><div class="play-icon"></div></div>
-          </div>
-        </div>
-
-        <!-- CARD TOP 3 -->
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <div class="top10-number">3</div>
-          <div class="top10-card-body">
-            <img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80" alt="Gastronomia 3">
-            <div class="card-overlay"><div class="play-icon"></div></div>
-          </div>
-        </div>
-
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">1</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">2</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">3</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">4</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">5</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">6</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">7</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">8</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">9</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">10</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
       </div>
     </section>
 
-    <!-- FILEIRA 2: TOP 10 CIRÚRGICOS -->
+    <!-- FILEIRA 2: TOP 10 CIRÚRGICOS (10 ITENS) -->
     <section class="category-row">
       <h2 class="row-title">Top 10 Takes Cirúrgicos</h2>
       <div class="row-scroll">
-        
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <div class="top10-number">1</div>
-          <div class="top10-card-body">
-            <img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80" alt="Cirúrgico 1">
-            <div class="card-overlay"><div class="play-icon"></div></div>
-          </div>
-        </div>
-
-        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <div class="top10-number">2</div>
-          <div class="top10-card-body">
-            <img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80" alt="Cirúrgico 2">
-            <div class="card-overlay"><div class="play-icon"></div></div>
-          </div>
-        </div>
-
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">1</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">2</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">3</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">4</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">5</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">6</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">7</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">8</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">9</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
+        <div class="card-top10" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><div class="top10-number">10</div><div class="top10-card-body"><img class="card-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div></div>
       </div>
     </section>
 
-    <!-- FILEIRA 3: VÍDEOS INSTITUCIONAIS -->
+    <!-- FILEIRA 3: VÍDEOS INSTITUCIONAIS (5 ITENS) -->
     <section class="category-row">
       <h2 class="row-title">Vídeos Institucionais</h2>
       <div class="row-scroll">
-        
-        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img class="card-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" alt="Institucional 1">
-          <div class="card-overlay"><div class="play-icon"></div></div>
-        </div>
-
-        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Institucional 2">
-          <div class="card-overlay"><div class="play-icon"></div></div>
-        </div>
-
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
       </div>
     </section>
 
-    <!-- FILEIRA 4: VÍDEOS DE HOSPEDAGENS -->
+    <!-- FILEIRA 4: VÍDEOS DE HOSPEDAGENS (5 ITENS) -->
     <section class="category-row">
       <h2 class="row-title">Vídeos de Hospedagens</h2>
       <div class="row-scroll">
-        
-        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80" alt="Hospedagem 1">
-          <div class="card-overlay"><div class="play-icon"></div></div>
-        </div>
-
-        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img class="card-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=400&q=80" alt="Hospedagem 2">
-          <div class="card-overlay"><div class="play-icon"></div></div>
-        </div>
-
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
       </div>
     </section>
 
-    <!-- FILEIRA 5: VÍDEOS DE ÓTICA -->
+    <!-- FILEIRA 5: VÍDEOS DE ÓTICA (5 ITENS) -->
     <section class="category-row">
       <h2 class="row-title">Vídeos de Ótica</h2>
       <div class="row-scroll">
-        
-        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img class="card-img" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=400&q=80" alt="Ótica 1">
-          <div class="card-overlay"><div class="play-icon"></div></div>
-        </div>
-
-        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img class="card-img" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=400&q=80" alt="Ótica 2">
-          <div class="card-overlay"><div class="play-icon"></div></div>
-        </div>
-
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-img" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=400&q=80"><div class="card-overlay"><div class="play-icon"></div></div></div>
       </div>
     </section>
 
@@ -532,7 +472,6 @@
       modal.classList.remove('active');
     }
 
-    // Fechar ao clicar fora do player
     document.getElementById('videoModal').addEventListener('click', function(e) {
       if (e.target === this) {
         closeModal();
