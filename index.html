@@ -14,6 +14,7 @@
       --text-secondary: #a1a1aa;
       --border-glass: rgba(255, 255, 255, 0.12);
       --whatsapp-green: #25d366;
+      --side-margin: 24px;
     }
 
     * {
@@ -79,7 +80,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-glass);
-      padding: 14px 20px;
+      padding: 14px var(--side-margin);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,7 +124,7 @@
     .action-bar {
       display: flex;
       gap: 10px;
-      padding: 16px 20px;
+      padding: 16px var(--side-margin);
       overflow-x: auto;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
@@ -152,7 +153,7 @@
 
     /* BANNER HERO */
     .hero-container {
-      padding: 0 20px 24px 20px;
+      padding: 0 var(--side-margin) 28px var(--side-margin);
     }
 
     .hero-card {
@@ -228,26 +229,30 @@
       border: 1px solid var(--border-glass);
     }
 
-    /* SEÇÕES DE TRILHO / CARROSSEL */
+    /* SEÇÕES DE TRILHO / CARROSSEL ALINHADOS */
     .row-section {
       margin-bottom: 28px;
     }
 
     .row-header {
-      padding: 0 20px 12px 20px;
+      padding: 0 var(--side-margin);
+      margin-bottom: 12px;
+      text-align: left;
     }
 
     .row-title {
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: -0.3px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
     }
 
     .row-scroll {
       display: flex;
       gap: 12px;
       overflow-x: auto;
-      padding: 0 20px;
+      padding: 0 var(--side-margin);
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
       touch-action: pan-x;
@@ -315,7 +320,7 @@
       background: rgba(9, 9, 11, 0.9);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-glass);
-      padding: 16px 20px;
+      padding: 16px var(--side-margin);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -338,7 +343,7 @@
     }
 
     .subpage-content {
-      padding: 20px;
+      padding: 20px var(--side-margin);
     }
 
     .backstage-gallery {
@@ -552,10 +557,10 @@
     </div>
   </section>
 
-  <!-- LINHA 3: TAKES INSTITUCIONAIS -->
+  <!-- LINHA 3: VÍDEOS INSTITUCIONAIS -->
   <section class="row-section">
     <div class="row-header">
-      <h2 class="row-title">Takes institucionais</h2>
+      <h2 class="row-title">Vídeos institucionais</h2>
     </div>
     <div class="row-scroll">
       <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=300&q=80"></div>
@@ -565,10 +570,29 @@
     </div>
   </section>
 
-  <!-- LINHA 4: ENGAJAMENTO NO PERFIL DOS CLIENTES -->
+  <!-- LINHA 4: OUTROS TRABALHOS (10 SLIDES) -->
   <section class="row-section">
     <div class="row-header">
-      <h2 class="row-title">Engajamento no perfil dos clientes</h2>
+      <h2 class="row-title">Outros trabalhos</h2>
+    </div>
+    <div class="row-scroll">
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><img class="card-thumb" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=300&q=80"></div>
+    </div>
+  </section>
+
+  <!-- LINHA 5: VEJA O ENGAJAMENTO NA PRÁTICA -->
+  <section class="row-section">
+    <div class="row-header">
+      <h2 class="row-title">Veja o engajamento na prática</h2>
     </div>
     <div class="row-scroll">
       <a href="https://instagram.com" target="_blank" class="video-card">
