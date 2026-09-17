@@ -8,8 +8,8 @@
     :root {
       --bg-black: #09090b;
       --bg-card: rgba(255, 255, 255, 0.05);
-      --red-netflix: #e50914;
-      --red-glow: rgba(229, 9, 20, 0.4);
+      --brand-blue: #0052FF;
+      --blue-glow: rgba(0, 82, 255, 0.4);
       --text-primary: #ffffff;
       --text-secondary: #a1a1aa;
       --border-glass: rgba(255, 255, 255, 0.12);
@@ -23,7 +23,9 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      height: 100%;
       background-color: var(--bg-black);
       color: var(--text-primary);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
@@ -31,39 +33,41 @@
       padding-bottom: 40px;
     }
 
-    /* SPLASH SCREEN (ABERTURA ESTILO NETFLIX) */
+    /* SPLASH SCREEN (ABERTURA EM TELA CHEIA SEM CORTES) */
     #splash-screen {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
       background-color: #000000;
-      z-index: 9999;
+      z-index: 99999;
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: fadeOutSplash 0.6s ease 2.2s forwards;
+      animation: fadeOutSplash 0.5s ease 2.2s forwards;
     }
 
     .splash-logo {
       font-size: 2.8rem;
       font-weight: 900;
       letter-spacing: -1px;
-      color: var(--red-netflix);
+      color: var(--brand-blue);
       text-transform: uppercase;
       animation: zoomLogo 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-      text-shadow: 0 0 30px var(--red-glow);
+      text-shadow: 0 0 30px var(--blue-glow);
     }
 
     @keyframes zoomLogo {
       0% { transform: scale(0.6); opacity: 0; }
       50% { opacity: 1; }
-      100% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1.1); opacity: 1; }
     }
 
     @keyframes fadeOutSplash {
-      to { opacity: 0; visibility: hidden; }
+      to { opacity: 0; visibility: hidden; pointer-events: none; }
     }
 
     /* HEADER */
@@ -71,7 +75,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 9, 11, 0.85);
+      background: rgba(9, 9, 11, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-glass);
@@ -88,7 +92,7 @@
     }
 
     .brand-n {
-      color: var(--red-netflix);
+      color: var(--brand-blue);
       font-weight: 900;
       font-size: 1.8rem;
       line-height: 1;
@@ -98,6 +102,7 @@
       font-weight: 800;
       font-size: 1.25rem;
       letter-spacing: -0.5px;
+      color: var(--text-primary);
     }
 
     .header-actions {
@@ -112,20 +117,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s;
     }
 
-    .icon-link:active {
-      transform: scale(0.9);
-    }
-
-    /* BARRA DE MENU SUPERIOR (BOTÕES) */
+    /* BARRA DE AÇÕES / MENU */
     .action-bar {
       display: flex;
       gap: 10px;
       padding: 16px 20px;
       overflow-x: auto;
       scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
 
     .action-bar::-webkit-scrollbar {
@@ -143,19 +144,13 @@
       white-space: nowrap;
       cursor: pointer;
       backdrop-filter: blur(8px);
-      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 6px;
       text-decoration: none;
     }
 
-    .btn-pill:active {
-      background: rgba(255, 255, 255, 0.15);
-      transform: scale(0.96);
-    }
-
-    /* BANNER HERO (DESTAQUE PRINCIPAL) */
+    /* BANNER HERO */
     .hero-container {
       padding: 0 20px 24px 20px;
     }
@@ -192,7 +187,6 @@
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 6px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
     }
 
     .hero-subtitle {
@@ -220,11 +214,6 @@
       justify-content: center;
       gap: 8px;
       text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    .btn-main:active {
-      transform: scale(0.98);
     }
 
     .btn-play {
@@ -239,7 +228,7 @@
       border: 1px solid var(--border-glass);
     }
 
-    /* TRILHOS / LISTAS DE VÍDEOS */
+    /* SEÇÕES DE TRILHO / CARROSSEL */
     .row-section {
       margin-bottom: 28px;
     }
@@ -254,55 +243,26 @@
       letter-spacing: -0.3px;
     }
 
+    /* SCROLL HORIZONTAL CORRIGIDO */
     .row-scroll {
       display: flex;
       gap: 12px;
       overflow-x: auto;
       padding: 0 20px;
       scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
+      scroll-snap-type: x mandatory;
     }
 
     .row-scroll::-webkit-scrollbar {
       display: none;
     }
 
-    /* CARD ESTILO TOP 10 (COM NÚMERO GRANDÃO NO FUNDO) */
-    .top10-card {
-      position: relative;
-      flex: 0 0 140px;
-      display: flex;
-      align-items: flex-end;
-      cursor: pointer;
-    }
-
-    .top10-number {
-      position: absolute;
-      left: -15px;
-      bottom: -10px;
-      font-size: 6rem;
-      font-weight: 900;
-      color: #09090b;
-      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
-      z-index: 1;
-      line-height: 0.8;
-      user-select: none;
-    }
-
-    .top10-thumb {
-      position: relative;
-      z-index: 2;
-      width: 110px;
-      height: 160px;
-      border-radius: 12px;
-      object-fit: cover;
-      margin-left: auto;
-      border: 1px solid var(--border-glass);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    }
-
-    /* CARD PADRÃO / INSTAGRAM ENGAJAMENTO */
-    .standard-card {
+    /* CARD VÍDEO (TOP 10 E PADRÃO) */
+    .video-card {
       flex: 0 0 130px;
+      scroll-snap-align: start;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border-glass);
@@ -310,13 +270,29 @@
       text-decoration: none;
       color: var(--text-primary);
       box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      cursor: pointer;
+      position: relative;
     }
 
-    .standard-thumb {
+    .card-thumb {
       width: 100%;
-      height: 170px;
+      height: 180px;
       object-fit: cover;
       display: block;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid var(--border-glass);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
     }
 
     .card-info {
@@ -382,7 +358,7 @@
       justify-content: center;
     }
 
-    /* TOAST DE AVISO (COPIADO) */
+    /* TOAST NOTIFICATION */
     .toast {
       position: fixed;
       bottom: 20px;
@@ -429,7 +405,7 @@
     </div>
   </header>
 
-  <!-- MENU DE NAVEGAÇÃO / AÇÕES RÁPIDAS -->
+  <!-- MENU DE NAVEGAÇÃO -->
   <nav class="action-bar">
     <a href="#como-funciona" class="btn-pill">Como funciona</a>
     <a href="https://wa.me/5522999999999" target="_blank" class="btn-pill">Entre em contato</a>
@@ -439,7 +415,7 @@
     </button>
   </nav>
 
-  <!-- BLOCO HERO (DESTAQUE) -->
+  <!-- BLOCO HERO -->
   <section class="hero-container">
     <div class="hero-card">
       <img class="hero-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Anexo Gastrô">
@@ -459,49 +435,41 @@
     </div>
   </section>
 
-  <!-- LINHA 1: TOP 10 TAKES GASTRONÔMICOS -->
+  <!-- LINHA 1: TOP 10 TAKES GASTRONÔMICOS (10 ITEMS) -->
   <section class="row-section">
     <div class="row-header">
       <h2 class="row-title">Top 10 takes gastronômicos</h2>
     </div>
     <div class="row-scroll">
-      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <span class="top10-number">1</span>
-        <img class="top10-thumb" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80">
-      </div>
-      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <span class="top10-number">2</span>
-        <img class="top10-thumb" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=300&q=80">
-      </div>
-      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <span class="top10-number">3</span>
-        <img class="top10-thumb" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=300&q=80">
-      </div>
-      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <span class="top10-number">4</span>
-        <img class="top10-thumb" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=300&q=80">
-      </div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#1</span><img class="card-thumb" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#2</span><img class="card-thumb" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#3</span><img class="card-thumb" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#4</span><img class="card-thumb" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#5</span><img class="card-thumb" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#6</span><img class="card-thumb" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#7</span><img class="card-thumb" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#8</span><img class="card-thumb" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#9</span><img class="card-thumb" src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#10</span><img class="card-thumb" src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=300&q=80"></div>
     </div>
   </section>
 
-  <!-- LINHA 2: TOP 10 TAKES CIRÚRGICOS -->
+  <!-- LINHA 2: TOP 10 TAKES CIRÚRGICOS (10 ITEMS) -->
   <section class="row-section">
     <div class="row-header">
       <h2 class="row-title">Top 10 takes cirúrgicos</h2>
     </div>
     <div class="row-scroll">
-      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <span class="top10-number">1</span>
-        <img class="top10-thumb" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=300&q=80">
-      </div>
-      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <span class="top10-number">2</span>
-        <img class="top10-thumb" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=300&q=80">
-      </div>
-      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <span class="top10-number">3</span>
-        <img class="top10-thumb" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80">
-      </div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#1</span><img class="card-thumb" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#2</span><img class="card-thumb" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#3</span><img class="card-thumb" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#4</span><img class="card-thumb" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#5</span><img class="card-thumb" src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#6</span><img class="card-thumb" src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#7</span><img class="card-thumb" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#8</span><img class="card-thumb" src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#9</span><img class="card-thumb" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=300&q=80"></div>
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"><span class="card-badge">#10</span><img class="card-thumb" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=300&q=80"></div>
     </div>
   </section>
 
@@ -511,16 +479,16 @@
       <h2 class="row-title">Takes institucionais</h2>
     </div>
     <div class="row-scroll">
-      <div class="standard-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img class="standard-thumb" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80">
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img class="card-thumb" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80">
         <div class="card-info">Sede Corporativa</div>
       </div>
-      <div class="standard-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img class="standard-thumb" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80">
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img class="card-thumb" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80">
         <div class="card-info">Rafa Chicre Ótica</div>
       </div>
-      <div class="standard-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img class="standard-thumb" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=300&q=80">
+      <div class="video-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img class="card-thumb" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=300&q=80">
         <div class="card-info">Pousada Refúgio</div>
       </div>
     </div>
@@ -532,16 +500,16 @@
       <h2 class="row-title">Engajamento no perfil dos clientes</h2>
     </div>
     <div class="row-scroll">
-      <a href="https://instagram.com" target="_blank" class="standard-card">
-        <img class="standard-thumb" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80">
+      <a href="https://instagram.com" target="_blank" class="video-card">
+        <img class="card-thumb" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80">
         <div class="card-info">@anexogastro ↗</div>
       </a>
-      <a href="https://instagram.com" target="_blank" class="standard-card">
-        <img class="standard-thumb" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=300&q=80">
+      <a href="https://instagram.com" target="_blank" class="video-card">
+        <img class="card-thumb" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=300&q=80">
         <div class="card-info">@invet.sci ↗</div>
       </a>
-      <a href="https://instagram.com" target="_blank" class="standard-card">
-        <img class="standard-thumb" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80">
+      <a href="https://instagram.com" target="_blank" class="video-card">
+        <img class="card-thumb" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80">
         <div class="card-info">@rafachicreotica ↗</div>
       </a>
     </div>
