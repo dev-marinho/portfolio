@@ -3,274 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MKT Marinho | Portfólio Instagram Style</title>
+  <title>MKT Marinho | Audiovisual de Alto Valor</title>
   <style>
     :root {
-      --bg-dark: #000000;
-      --bg-card: #121212;
-      --text-main: #f5f5f5;
-      --text-muted: #a8a8a8;
-      --border-color: #262626;
-      --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      --whatsapp-color: #25d366;
+      --bg-black: #09090b;
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --red-netflix: #e50914;
+      --red-glow: rgba(229, 9, 20, 0.4);
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1aa;
+      --border-glass: rgba(255, 255, 255, 0.12);
+      --whatsapp-green: #25d366;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      padding-bottom: 90px;
-      -webkit-font-smoothing: antialiased;
+      background-color: var(--bg-black);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+      padding-bottom: 40px;
     }
 
-    /* HEADER TIPO INSTAGRAM */
+    /* SPLASH SCREEN (ABERTURA ESTILO NETFLIX) */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000000;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeOutSplash 0.6s ease 2.2s forwards;
+    }
+
+    .splash-logo {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--red-netflix);
+      text-transform: uppercase;
+      animation: zoomLogo 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+      text-shadow: 0 0 30px var(--red-glow);
+    }
+
+    @keyframes zoomLogo {
+      0% { transform: scale(0.6); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: scale(1.15); opacity: 1; }
+    }
+
+    @keyframes fadeOutSplash {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background-color: var(--bg-dark);
-      border-bottom: 1px solid var(--border-color);
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-glass);
+      padding: 14px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 12px 16px;
+      justify-content: space-between;
     }
 
-    .brand-logo {
-      font-size: 1.2rem;
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-n {
+      color: var(--red-netflix);
+      font-weight: 900;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .brand-title {
       font-weight: 800;
+      font-size: 1.25rem;
       letter-spacing: -0.5px;
     }
 
-    .brand-logo span {
-      color: #3897f0;
-    }
-
-    /* STORIES (TOP 10) */
-    .stories-container {
-      padding: 14px 0 10px 0;
-      border-bottom: 1px solid var(--border-color);
-      overflow-x: auto;
-      display: flex;
-      gap: 14px;
-      padding-left: 16px;
-      scrollbar-width: none;
-    }
-
-    .stories-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .story-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .story-ring {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: var(--insta-gradient);
-      padding: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .story-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--bg-dark);
-    }
-
-    .story-label {
-      font-size: 0.7rem;
-      color: var(--text-main);
-      max-width: 70px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: center;
-    }
-
-    /* FEED POSTS */
-    .feed-container {
-      max-width: 470px;
-      margin: 0 auto;
-    }
-
-    .post-card {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 16px;
-      margin-bottom: 8px;
-    }
-
-    .post-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 12px;
-    }
-
-    .post-profile {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .profile-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border-color);
-    }
-
-    .profile-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .profile-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .post-time {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-
-    /* MIDIA DO POST (VÍDEO/CAPA 9:16) */
-    .post-media {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      max-height: 580px;
-      background-color: var(--bg-card);
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .post-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .media-play-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50px;
-      height: 50px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-    }
-
-    .media-play-btn::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 8px 0 8px 14px;
-      border-color: transparent transparent transparent #ffffff;
-      margin-left: 3px;
-    }
-
-    /* ENGAJAMENTO / ACOES */
-    .post-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 12px 6px 12px;
-    }
-
-    .action-group {
+    .header-actions {
       display: flex;
       align-items: center;
       gap: 16px;
     }
 
-    .action-icon {
-      background: none;
-      border: none;
-      color: var(--text-main);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .post-likes {
-      padding: 0 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .post-caption {
-      padding: 0 12px;
-      font-size: 0.85rem;
-      line-height: 1.35;
-      color: var(--text-main);
-    }
-
-    .post-caption strong {
-      margin-right: 6px;
-    }
-
-    .post-comments-count {
-      padding: 4px 12px 0 12px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      cursor: pointer;
-    }
-
-    /* NAVBAR FIXA INFERIOR */
-    .bottom-nav {
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: auto;
-      min-width: 200px;
-      background: rgba(18, 18, 18, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 10px 24px;
-      gap: 32px;
-      z-index: 200;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    }
-
-    .nav-btn {
-      color: var(--text-main);
+    .icon-link {
+      color: var(--text-primary);
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -278,23 +115,227 @@
       transition: transform 0.2s;
     }
 
-    .nav-btn:active {
+    .icon-link:active {
       transform: scale(0.9);
     }
 
-    .nav-btn.whatsapp {
-      color: var(--whatsapp-color);
+    /* BARRA DE MENU SUPERIOR (BOTÕES) */
+    .action-bar {
+      display: flex;
+      gap: 10px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .action-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .btn-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      color: var(--text-primary);
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .btn-pill:active {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(0.96);
+    }
+
+    /* BANNER HERO (DESTAQUE PRINCIPAL) */
+    .hero-container {
+      padding: 0 20px 24px 20px;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-glass);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+      background: #18181b;
+    }
+
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(9,9,11,1) 0%, rgba(9,9,11,0.4) 50%, rgba(9,9,11,0) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 20px;
+    }
+
+    .hero-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-main {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .btn-main:active {
+      transform: scale(0.98);
+    }
+
+    .btn-play {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .btn-cta {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-glass);
+    }
+
+    /* TRILHOS / LISTAS DE VÍDEOS */
+    .row-section {
+      margin-bottom: 28px;
+    }
+
+    .row-header {
+      padding: 0 20px 12px 20px;
+    }
+
+    .row-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .row-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 0 20px;
+      scrollbar-width: none;
+    }
+
+    .row-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* CARD ESTILO TOP 10 (COM NÚMERO GRANDÃO NO FUNDO) */
+    .top10-card {
+      position: relative;
+      flex: 0 0 140px;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+    }
+
+    .top10-number {
+      position: absolute;
+      left: -15px;
+      bottom: -10px;
+      font-size: 6rem;
+      font-weight: 900;
+      color: #09090b;
+      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+      z-index: 1;
+      line-height: 0.8;
+      user-select: none;
+    }
+
+    .top10-thumb {
+      position: relative;
+      z-index: 2;
+      width: 110px;
+      height: 160px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-left: auto;
+      border: 1px solid var(--border-glass);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    }
+
+    /* CARD PADRÃO / INSTAGRAM ENGAJAMENTO */
+    .standard-card {
+      flex: 0 0 130px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-glass);
+      background: var(--bg-card);
+      text-decoration: none;
+      color: var(--text-primary);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    }
+
+    .standard-thumb {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-info {
+      padding: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: rgba(0,0,0,0.6);
     }
 
     /* MODAL VIDEO PLAYER */
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -305,18 +346,19 @@
       display: flex;
     }
 
-    .modal-content {
+    .modal-box {
       position: relative;
       width: 100%;
-      max-width: 380px;
-      aspect-ratio: 9/16;
-      max-height: 85vh;
+      max-width: 400px;
+      aspect-ratio: 9 / 16;
+      max-height: 80vh;
       background: #000;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
+      border: 1px solid var(--border-glass);
     }
 
-    .modal-content iframe {
+    .modal-box iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -324,231 +366,203 @@
 
     .modal-close {
       position: absolute;
-      top: -38px;
-      right: 0;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.6);
       color: #fff;
-      font-size: 1.8rem;
+      border: 1px solid var(--border-glass);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
       cursor: pointer;
-      background: none;
-      border: none;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* TOAST DE AVISO (COPIADO) */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(255, 255, 255, 0.95);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 2000;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
 <body>
 
+  <!-- SPLASH SCREEN DE ABERTURA -->
+  <div id="splash-screen">
+    <div class="splash-logo">MARINHO</div>
+  </div>
+
   <!-- HEADER -->
   <header>
-    <div class="brand-logo">MKT <span>MARINHO</span></div>
-    <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">PORTFÓLIO</div>
+    <div class="header-brand">
+      <span class="brand-n">M</span>
+      <span class="brand-title">MARINHO</span>
+    </div>
+    <div class="header-actions">
+      <!-- WhatsApp Icon -->
+      <a href="https://wa.me/5522999999999" target="_blank" class="icon-link" aria-label="WhatsApp">
+        <svg width="24" height="24" fill="var(--whatsapp-green)" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      </a>
+      <!-- Instagram Icon -->
+      <a href="https://instagram.com" target="_blank" class="icon-link" aria-label="Instagram">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+    </div>
   </header>
 
-  <!-- STORIES: TOP 10 -->
-  <section class="stories-container">
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#1 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#2 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#3 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#4 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#5 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#6 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#7 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#8 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#9 Take</span>
-    </div>
-    <div class="story-item" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-      <div class="story-ring"><img class="story-img" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=200&q=80"></div>
-      <span class="story-label">#10 Take</span>
+  <!-- MENU DE NAVEGAÇÃO / AÇÕES RÁPIDAS -->
+  <nav class="action-bar">
+    <a href="#como-funciona" class="btn-pill">Como funciona</a>
+    <a href="https://wa.me/5522999999999" target="_blank" class="btn-pill">Entre em contato</a>
+    <button class="btn-pill" onclick="copyEmail('contato@mktmarinho.com.br')">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copiar meu e-mail
+    </button>
+  </nav>
+
+  <!-- BLOCO HERO (DESTAQUE) -->
+  <section class="hero-container">
+    <div class="hero-card">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Anexo Gastrô">
+      <div class="hero-overlay">
+        <h1 class="hero-title">Anexo Gastrô</h1>
+        <p class="hero-subtitle">Vídeo Estratégico • Alta Gastronomia</p>
+        <div class="hero-buttons">
+          <button class="btn-main btn-play" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            Assistir esse trabalho
+          </button>
+          <a href="https://wa.me/5522999999999?text=Ol%C3%A1!%20Vi%20o%20v%C3%ADdeo%20do%20Anexo%20Gastr%C3%B4%20no%20seu%20portf%C3%B3lio%20e%20preciso%20de%20um%20v%C3%ADdeo%20assim." target="_blank" class="btn-main btn-cta">
+            Preciso de um vídeo assim
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FEED DE TRABALHOS -->
-  <main class="feed-container">
+  <!-- LINHA 1: TOP 10 TAKES GASTRONÔMICOS -->
+  <section class="row-section">
+    <div class="row-header">
+      <h2 class="row-title">Top 10 takes gastronômicos</h2>
+    </div>
+    <div class="row-scroll">
+      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <span class="top10-number">1</span>
+        <img class="top10-thumb" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80">
+      </div>
+      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <span class="top10-number">2</span>
+        <img class="top10-thumb" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=300&q=80">
+      </div>
+      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <span class="top10-number">3</span>
+        <img class="top10-thumb" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=300&q=80">
+      </div>
+      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <span class="top10-number">4</span>
+        <img class="top10-thumb" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=300&q=80">
+      </div>
+    </div>
+  </section>
 
-    <!-- POST 1: ANEXO GASTRÔ -->
-    <article class="post-card">
-      <div class="post-header">
-        <div class="post-profile">
-          <img class="profile-avatar" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=100&q=80">
-          <div class="profile-info">
-            <span class="profile-name">anexogastro</span>
-            <span class="post-time">há 1h</span>
-          </div>
-        </div>
+  <!-- LINHA 2: TOP 10 TAKES CIRÚRGICOS -->
+  <section class="row-section">
+    <div class="row-header">
+      <h2 class="row-title">Top 10 takes cirúrgicos</h2>
+    </div>
+    <div class="row-scroll">
+      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <span class="top10-number">1</span>
+        <img class="top10-thumb" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=300&q=80">
       </div>
-      <div class="post-media" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80">
-        <div class="media-play-btn"></div>
+      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <span class="top10-number">2</span>
+        <img class="top10-thumb" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=300&q=80">
       </div>
-      <div class="post-actions">
-        <div class="action-group">
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
-        </div>
+      <div class="top10-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <span class="top10-number">3</span>
+        <img class="top10-thumb" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80">
       </div>
-      <div class="post-likes">1.842 curtidas</div>
-      <div class="post-caption"><strong>anexogastro</strong> Vídeo especial da nossa nova experiência gastronômica! Vídeo por @mktmarinho</div>
-      <div class="post-comments-count">Ver todos os 48 comentários</div>
-    </article>
+    </div>
+  </section>
 
-    <!-- POST 2: IN VET SCI -->
-    <article class="post-card">
-      <div class="post-header">
-        <div class="post-profile">
-          <img class="profile-avatar" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=100&q=80">
-          <div class="profile-info">
-            <span class="profile-name">invet.sci</span>
-            <span class="post-time">há 3h</span>
-          </div>
-        </div>
+  <!-- LINHA 3: TAKES INSTITUCIONAIS -->
+  <section class="row-section">
+    <div class="row-header">
+      <h2 class="row-title">Takes institucionais</h2>
+    </div>
+    <div class="row-scroll">
+      <div class="standard-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img class="standard-thumb" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80">
+        <div class="card-info">Sede Corporativa</div>
       </div>
-      <div class="post-media" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80">
-        <div class="media-play-btn"></div>
+      <div class="standard-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img class="standard-thumb" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80">
+        <div class="card-info">Rafa Chicre Ótica</div>
       </div>
-      <div class="post-actions">
-        <div class="action-group">
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
-        </div>
+      <div class="standard-card" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img class="standard-thumb" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=300&q=80">
+        <div class="card-info">Pousada Refúgio</div>
       </div>
-      <div class="post-likes">956 curtidas</div>
-      <div class="post-caption"><strong>invet.sci</strong> Detalhes e precisão cirúrgica em cada take. Produção @mktmarinho</div>
-      <div class="post-comments-count">Ver todos os 23 comentários</div>
-    </article>
+    </div>
+  </section>
 
-    <!-- POST 3: RAFA CHICRE ÓTICA -->
-    <article class="post-card">
-      <div class="post-header">
-        <div class="post-profile">
-          <img class="profile-avatar" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=100&q=80">
-          <div class="profile-info">
-            <span class="profile-name">rafachicreotica</span>
-            <span class="post-time">há 5h</span>
-          </div>
-        </div>
-      </div>
-      <div class="post-media" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80">
-        <div class="media-play-btn"></div>
-      </div>
-      <div class="post-actions">
-        <div class="action-group">
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
-        </div>
-      </div>
-      <div class="post-likes">2.310 curtidas</div>
-      <div class="post-caption"><strong>rafachicreotica</strong> Nova coleção de armações autorais em destaque.</div>
-      <div class="post-comments-count">Ver todos os 89 comentários</div>
-    </article>
+  <!-- LINHA 4: ENGAJAMENTO NO PERFIL DOS CLIENTES -->
+  <section class="row-section">
+    <div class="row-header">
+      <h2 class="row-title">Engajamento no perfil dos clientes</h2>
+    </div>
+    <div class="row-scroll">
+      <a href="https://instagram.com" target="_blank" class="standard-card">
+        <img class="standard-thumb" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80">
+        <div class="card-info">@anexogastro ↗</div>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="standard-card">
+        <img class="standard-thumb" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=300&q=80">
+        <div class="card-info">@invet.sci ↗</div>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="standard-card">
+        <img class="standard-thumb" src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80">
+        <div class="card-info">@rafachicreotica ↗</div>
+      </a>
+    </div>
+  </section>
 
-    <!-- POST 4: POUSADA LIFESTYLE -->
-    <article class="post-card">
-      <div class="post-header">
-        <div class="post-profile">
-          <img class="profile-avatar" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=100&q=80">
-          <div class="profile-info">
-            <span class="profile-name">pousada_refugio</span>
-            <span class="post-time">há 1d</span>
-          </div>
-        </div>
-      </div>
-      <div class="post-media" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80">
-        <div class="media-play-btn"></div>
-      </div>
-      <div class="post-actions">
-        <div class="action-group">
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
-        </div>
-      </div>
-      <div class="post-likes">3.104 curtidas</div>
-      <div class="post-caption"><strong>pousada_refugio</strong> Acordar com essa vista não tem preço. Produção audiovisual por @mktmarinho</div>
-      <div class="post-comments-count">Ver todos os 112 comentários</div>
-    </article>
-
-    <!-- POST 5: CAFE ARTESANAL -->
-    <article class="post-card">
-      <div class="post-header">
-        <div class="post-profile">
-          <img class="profile-avatar" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=100&q=80">
-          <div class="profile-info">
-            <span class="profile-name">cafedaserra</span>
-            <span class="post-time">há 2d</span>
-          </div>
-        </div>
-      </div>
-      <div class="post-media" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80">
-        <div class="media-play-btn"></div>
-      </div>
-      <div class="post-actions">
-        <div class="action-group">
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></button>
-          <button class="action-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
-        </div>
-      </div>
-      <div class="post-likes">1.420 curtidas</div>
-      <div class="post-caption"><strong>cafedaserra</strong> O aroma que vira experiência. Vídeo estratégico por @mktmarinho</div>
-      <div class="post-comments-count">Ver todos os 34 comentários</div>
-    </article>
-
-  </main>
-
-  <!-- MENU FIXO FLUTUANTE INFERIOR -->
-  <nav class="bottom-nav">
-    <a href="https://wa.me/5522999999999" target="_blank" class="nav-btn whatsapp" aria-label="WhatsApp">
-      <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    </a>
-    <a href="https://instagram.com" target="_blank" class="nav-btn" aria-label="Instagram">
-      <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
-  </nav>
-
-  <!-- MODAL PLAYER -->
+  <!-- MODAL VIDEO PLAYER -->
   <div class="modal" id="videoModal">
-    <div class="modal-content">
+    <div class="modal-box">
       <button class="modal-close" onclick="closeModal()">&times;</button>
       <iframe id="modalFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
 
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast">E-mail copiado com sucesso!</div>
+
   <script>
-    function openModal(videoUrl) {
+    function openModal(url) {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('modalFrame');
-      iframe.src = videoUrl + '?autoplay=1';
+      iframe.src = url + '?autoplay=1';
       modal.classList.add('active');
     }
 
@@ -560,10 +574,16 @@
     }
 
     document.getElementById('videoModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeModal();
-      }
+      if (e.target === this) closeModal();
     });
+
+    function copyEmail(email) {
+      navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    }
   </script>
 </body>
 </html>
