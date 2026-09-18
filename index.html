@@ -14,8 +14,8 @@
       --text-secondary: #a1a1aa;
       --border-glass: rgba(255, 255, 255, 0.12);
       --whatsapp-green: #25d366;
-      /* Margem única para garantir o alinhamento perfeito na esquerda */
-      --gutter: 24px; 
+      /* Respiro idêntico ao da Netflix no mobile */
+      --gutter: 16px; 
     }
 
     * {
@@ -25,7 +25,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* OCULTAR QUALQUER BARRA DE ROLAGEM GLOBAL OU LOCAL E DEIXAR SCROLL FLUIDO */
+    /* REMOVE BARRAS DE ROLAGEM E MANTÉM SCROLL FLUIDO */
     html, body {
       width: 100%;
       background-color: var(--bg-black);
@@ -34,12 +34,12 @@
       overflow-x: hidden;
       overflow-y: auto;
       padding-bottom: 40px;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     body::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+      display: none;
       width: 0;
       height: 0;
     }
@@ -169,7 +169,7 @@
     .hero-card {
       position: relative;
       width: 100%;
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border-glass);
       box-shadow: 0 20px 40px rgba(0,0,0,0.8);
@@ -239,34 +239,33 @@
       border: 1px solid var(--border-glass);
     }
 
-    /* SEÇÕES DE TRILHO (RELAÇÃO DIRETA DE ALINHAMENTO) */
+    /* SEÇÕES E ALINHAMENTO IGUAL À NETFLIX */
     .row-section {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
-    /* Alinhamento exato à esquerda na borda inicial (var(--gutter)) */
     .row-header {
-      padding: 0 var(--gutter);
-      margin-bottom: 10px;
+      padding: 0 var(--gutter) !important;
+      margin-bottom: 8px;
       text-align: left;
     }
 
     .row-title {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: var(--text-primary);
       display: block;
-      margin: 0;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
-    /* O padding-left do scroll bate exato com a borda do título */
     .row-scroll {
       display: flex;
-      gap: 12px;
+      gap: 8px;
       overflow-x: auto;
-      padding: 0 var(--gutter);
+      padding: 0 var(--gutter) !important;
       scrollbar-width: none;
       -ms-overflow-style: none;
       -webkit-overflow-scrolling: touch;
@@ -280,9 +279,9 @@
     }
 
     .video-card {
-      flex: 0 0 130px;
+      flex: 0 0 115px;
       scroll-snap-align: start;
-      border-radius: 12px;
+      border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--border-glass);
       background: var(--bg-card);
@@ -295,22 +294,22 @@
 
     .card-thumb {
       width: 100%;
-      height: 180px;
+      height: 165px;
       object-fit: cover;
       display: block;
     }
 
     .card-badge {
       position: absolute;
-      top: 8px;
-      left: 8px;
+      top: 6px;
+      left: 6px;
       background: rgba(0, 0, 0, 0.75);
       border: 1px solid var(--border-glass);
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 800;
-      padding: 2px 6px;
-      border-radius: 6px;
+      padding: 2px 5px;
+      border-radius: 4px;
       backdrop-filter: blur(4px);
     }
 
@@ -520,7 +519,7 @@
     </button>
   </nav>
 
-  <!-- BLOCO HERO -->
+  <!-- BANNER HERO -->
   <section class="hero-container">
     <div class="hero-card">
       <img class="hero-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Anexo Gastrô">
@@ -610,7 +609,7 @@
     </div>
   </section>
 
-    <!-- TRILHO 5: VEJA O ENGAJAMENTO NA PRÁTICA (10 CARDS) -->
+  <!-- TRILHO 5: VEJA O ENGAJAMENTO NA PRÁTICA (10 CARDS) -->
   <section class="row-section">
     <div class="row-header">
       <h2 class="row-title">Veja o engajamento na prática</h2>
@@ -649,7 +648,7 @@
     </div>
   </section>
 
-  <!-- SUBPAGE -->
+  <!-- SUBPAGE COMO FUNCIONA -->
   <div class="subpage" id="subpageHow">
     <div class="subpage-header">
       <span class="subpage-title">Como funciona</span>
@@ -673,7 +672,7 @@
     </div>
   </div>
 
-  <!-- MODAL -->
+  <!-- MODAL VIDEO PLAYER -->
   <div class="modal" id="videoModal">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -681,7 +680,7 @@
     </div>
   </div>
 
-  <!-- TOAST -->
+  <!-- TOAST NOTIFICATION -->
   <div id="toast" class="toast">E-mail copiado com sucesso!</div>
 
   <script>
